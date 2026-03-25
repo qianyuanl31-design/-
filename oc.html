@@ -6,63 +6,78 @@
     <title>角色档案</title>
     <style>
         body {
-            background: linear-gradient(to bottom, #0f1c2e, #1f3a5f);
-            color: white;
+            margin: 0;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #dff6ff, #a0d8ef);
             font-family: "Segoe UI", sans-serif;
-            padding: 40px;
         }
 
-        .container {
-            max-width: 900px;
-            margin: auto;
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding-top: 100px;
+            color: #1a3c5a;
         }
 
         h1 {
-            text-align: center;
-            margin-bottom: 40px;
-            letter-spacing: 2px;
-        }
-
-        .card {
-            background: rgba(255,255,255,0.08);
-            padding: 25px;
-            border-radius: 20px;
-            margin-bottom: 30px;
-            backdrop-filter: blur(10px);
-        }
-
-        .name {
-            font-size: 24px;
-            color: #8ab4ff;
-        }
-
-        .info p {
-            margin: 8px 0;
-        }
-
-        .label {
-            color: #8ab4ff;
-        }
-
-        .story {
-            margin-top: 15px;
-            line-height: 1.8;
-            opacity: 0.9;
+            font-size: 40px;
         }
 
         a {
-            display: block;
-            text-align: center;
-            margin-top: 30px;
-            color: #8ab4ff;
+            color: #1a3c5a;
+        }
+
+        /* 雪花 */
+        .snow {
+            position: absolute;
+            top: -50px;
+            font-size: 20px;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
         }
     </style>
 </head>
 
 <body>
 
-<div class="container">
-    <h1>角色档案</h1>
+<div class="content">
+    <h1>角色档案 ❄️</h1>
+    <p>这里是清念洋与凉蝶的世界</p>
+
+    <a href="index.html">← 返回首页</a>
+</div>
+
+<script>
+    function createSnow() {
+        const snow = document.createElement("div");
+        snow.classList.add("snow");
+
+        const emojis = ["❄️","💧"];
+        snow.innerText = emojis[Math.floor(Math.random()*emojis.length)];
+
+        snow.style.left = Math.random() * window.innerWidth + "px";
+        snow.style.animationDuration = (3 + Math.random() * 5) + "s";
+
+        document.body.appendChild(snow);
+
+        setTimeout(() => {
+            snow.remove();
+        }, 8000);
+    }
+
+    setInterval(createSnow, 300);
+</script>
+
+</body>
+</html>
+
+ 
 
     <!-- 凉蝶 -->
     <div class="card">
