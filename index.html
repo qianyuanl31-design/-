@@ -1,12 +1,95 @@
+
+<a href="oc.html" class="btn"> 🧊角色档案（千千）</a>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>千千与落樱</title>
+    <title>千千的小世界</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: linear-gradient(to bottom, #fff8dc, #fffdf5);
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding-top: 120px;
+            color: #8b6b2c;
+        }
+
+        h1 {
+            font-size: 50px;
+        }
+
+        p {
+            opacity: 0.8;
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 20px;
+            padding: 12px 25px;
+            border-radius: 25px;
+            background: #ffe4a1;
+            color: #6b4e16;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #ffd580;
+        }
+
+        /* 飘落糖果 */
+        .sweet {
+            position: absolute;
+            top: -50px;
+            font-size: 22px;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>欢迎来到千千与落樱网站🍬</h1>
-    <p>这里是我们写OC文和画漫画的网站！不喜勿喷！</p>
+
+<div class="content">
+    <h1>千千与落樱 🍬</h1>
+    <p>这里是我们写OC文和画漫画的网站！不喜勿喷！❤️</p>
+
+    <a href="story.html" class="btn">📖 进入小说</a>
+    <a href="oc.html" class="btn"> 查看角色（千千oc的小说）</a>
+</div>
+
+<script>
+    function createSweet() {
+        const sweet = document.createElement("div");
+        sweet.classList.add("sweet");
+
+        const emojis = ["🍬","🍪","🍫"];
+        sweet.innerText = emojis[Math.floor(Math.random()*emojis.length)];
+
+        sweet.style.left = Math.random() * window.innerWidth + "px";
+        sweet.style.animationDuration = (3 + Math.random() * 5) + "s";
+
+        document.body.appendChild(sweet);
+
+        setTimeout(() => {
+            sweet.remove();
+        }, 8000);
+    }
+
+    setInterval(createSweet, 300);
+</script>
+
 </body>
 </html>
-
-<a href="oc.html" class="btn">查看</a>
