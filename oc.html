@@ -4,82 +4,115 @@
 
 <div class="content">
 
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html>
 <head>
     <title>角色档案</title>
     <style>
         body {
             margin: 0;
-            overflow: hidden;
             background: linear-gradient(to bottom, #dff6ff, #a0d8ef);
             font-family: "Segoe UI", sans-serif;
+            color: #1a3c5a;
+            padding: 40px;
         }
 
-        .content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            padding-top: 100px;
-            color: #1a3c5a;
+        .container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.6);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
         }
 
         h1 {
-            font-size: 40px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #ffffffaa;
+            padding: 5px 10px;
+            border-radius: 10px;
+            margin: 5px 5px 0 0;
+            font-size: 14px;
+        }
+
+        .story {
+            margin-top: 15px;
+            line-height: 1.8;
         }
 
         a {
-            color: #1a3c5a;
-        }
-
-        /* 雪花 */
-        .snow {
-            position: absolute;
-            top: -50px;
-            font-size: 20px;
-            animation: fall linear infinite;
-        }
-
-        @keyframes fall {
-            to {
-                transform: translateY(100vh);
-            }
+            display: block;
+            text-align: center;
+            margin-top: 20px;
         }
     </style>
 </head>
 
 <body>
 
-<div class="content">
-    <h1>角色档案 ❄️</h1>
-    <p>这里是清念洋与凉蝶的世界</p>
+<div class="container">
+
+    <h1>角色档案 ❄️💧</h1>
+
+    <!-- 凉蝶 -->
+    <div class="card">
+        <h2>❄️ 凉蝶</h2>
+        <p><b>身份：</b>名门大小姐 / 实际是间谍</p>
+        <p><b>气质：</b>冷静、理性、疏离、不轻易表露情绪</p>
+        <p><b>特点：</b>白色眼瞳，被认为“不像普通人”，从小被当成工具培养</p>
+
+        <div class="story">
+            <b>内核：</b><br>
+            不相信“被爱”。<br>
+            做任何事都带目的。<br>
+            却在无人处，渴望有人真正看见她。
+        </div>
+
+        <div>
+            <span class="tag">控制</span>
+            <span class="tag">伪装</span>
+            <span class="tag">压抑</span>
+            <span class="tag">自我隔离</span>
+        </div>
+    </div>
+
+    <!-- 清念洋 -->
+    <div class="card">
+        <h2>💧 清念洋</h2>
+        <p><b>身份：</b>情报相关人员（温和观察者）</p>
+        <p><b>气质：</b>温和、干净、稳定、有边界感</p>
+        <p><b>特点：</b>黄橙色眼瞳，像光一样“活着”</p>
+
+        <div class="story">
+            <b>内核：</b><br>
+            情绪稳定，但并不迟钝。<br>
+            他看得出她的伪装。<br>
+            却不拆穿，只是一步一步靠近。
+        </div>
+
+        <div>
+            <span class="tag">包容</span>
+            <span class="tag">温度</span>
+            <span class="tag">观察</span>
+            <span class="tag">慢慢侵入</span>
+        </div>
+    </div>
 
     <a href="index.html">← 返回首页</a>
+
 </div>
-
-<script>
-    function createSnow() {
-        const snow = document.createElement("div");
-        snow.classList.add("snow");
-
-        const emojis = ["❄️","💧"];
-        snow.innerText = emojis[Math.floor(Math.random()*emojis.length)];
-
-        snow.style.left = Math.random() * window.innerWidth + "px";
-        snow.style.animationDuration = (3 + Math.random() * 5) + "s";
-
-        document.body.appendChild(snow);
-
-        setTimeout(() => {
-            snow.remove();
-        }, 8000);
-    }
-
-    setInterval(createSnow, 300);
-</script>
 
 </body>
 </html>
-
- 
-
