@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>落樱的OC世界</title>
+</head>
+<body>
+    <h1>欢迎来到我的世界</h1>
+    <p>这里是地图</p>
+
+    <h2>地图</h2>
+    <img src="map.jpg" width="500">
+
+    <h2>进入世界</h2>
+    <ul>
+        <li><a href="story.html">主线故事</a></li>
+        <li><a href="characters.html">角色档案</a></li>
+    </ul>
+</body>
+</html>
