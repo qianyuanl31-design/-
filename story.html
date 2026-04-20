@@ -27,6 +27,14 @@
             border-radius: 20px;
             backdrop-filter: blur(8px);
         }
+        /* 🌙 夜间模式去雾 + 改深色 */
+.dark .container {
+    background: rgba(20, 30, 50, 0.85);  /* 深蓝透明 */
+    backdrop-filter: blur(0px);          /* ❗取消雾化 */
+} 
+        .dark p {
+    color: #dbe9ff;
+}
 
         h1 {
             text-align: center;
@@ -156,7 +164,8 @@
 
 <p class="line">——这不在她的控制范围内。</p>
 <p class="line">……</p>
-<h2 style="text-align:center;">第二段 · 偏差</h2>
+
+    <h2 style="text-align:center;">第二段 · 偏差</h2>
 <p>清念洋松开她的手。</p>
 
 <p>“伤口不用再处理了，明天可以拆掉。”</p>
