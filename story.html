@@ -46,17 +46,16 @@
             margin-top: 30px;
         }
 
-        /* 🌙 夜间模式 */
         .dark {
             background: linear-gradient(to bottom, #0f1c2e, #1a2e4a);
             color: #e0ecff;
         }
 
-        /* ❗去掉白雾 */
-        .dark .container {
-            background: rgba(20, 30, 50, 0.85);
-            backdrop-filter: blur(0px);
-        }
+   /* ❗去掉白雾（修正版） */
+.dark .container {
+    background: #141e32;   /* 改成纯色！ */
+    backdrop-filter: none; /* 完全关闭模糊 */
+}
 
         .dark p {
             color: #dbe9ff;
