@@ -1,22 +1,17 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+    <meta charset="utf-8">
     <title>故事 · 开端</title>
 
     <style>
         body {
             margin: 0;
-            background: linear-gradient(to bottom, #eef6ff, #ffffff);
+            background: linear-gradient(to bottom, #eef6ff, #ffffff); 
             font-family: "Segoe UI", serif;
             color: #2c3e50;
             padding: 40px;
-        }
-
-        /* 夜间模式 */
-        .dark {
-            background: linear-gradient(to bottom, #0f1c2e, #1a2e4a);
-            color: #e0ecff;
+            transition: 0.3s;
         }
 
         .container {
@@ -26,28 +21,12 @@
             padding: 30px;
             border-radius: 20px;
             backdrop-filter: blur(8px);
+            transition: 0.3s;
         }
-        /* 🌙 夜间模式去雾 + 改深色 */
-.dark .container {
-    background: rgba(20, 30, 50, 0.85);  /* 深蓝透明 */
-    backdrop-filter: blur(0px);          /* ❗取消雾化 */
-} 
-        .dark p {
-    color: #dbe9ff;
-}
 
         h1 {
             text-align: center;
-            margin-bottom: 20px;
-        }
-
-        button {
-            display: block;
-            margin: 0 auto 20px auto;
-            padding: 8px 15px;
-            border-radius: 10px;
-            border: none;
-            cursor: pointer;
+            margin-bottom: 30px;
         }
 
         p {
@@ -64,7 +43,32 @@
         a {
             display: block;
             text-align: center;
-            margin-top: 20px;
+            margin-top: 30px;
+        }
+
+        /* 🌙 夜间模式 */
+        .dark {
+            background: linear-gradient(to bottom, #0f1c2e, #1a2e4a);
+            color: #e0ecff;
+        }
+
+        /* ❗去掉白雾 */
+        .dark .container {
+            background: rgba(20, 30, 50, 0.85);
+            backdrop-filter: blur(0px);
+        }
+
+        .dark p {
+            color: #dbe9ff;
+        }
+
+        button {
+            display: block;
+            margin: 0 auto 20px;
+            padding: 8px 16px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
         }
     </style>
 </head>
