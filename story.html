@@ -5,7 +5,16 @@
     <title>故事 · 开端</title>
 
     <style>
-        body {
+        body 
+        <body>
+
+<!-- 🎵 背景音乐 -->
+<audio id="bgm" loop>
+    <source src="bgm.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">  
+        {
             margin: 0;
             background: linear-gradient(to bottom, #eef6ff, #ffffff); 
             font-family: "Segoe UI", serif;
@@ -79,7 +88,7 @@
 <h1>故事 · 开端 ❄️💧</h1>
 
 <button onclick="toggleDark()">🌙 夜间模式</button>
-
+<button onclick="playMusic()">🎵 播放音乐</button>
 <p>消毒水的气味很淡，却挥之不去。</p>
 
 <p>凉蝶坐在病床边，手腕缠着简单的绷带。<br>
@@ -270,7 +279,11 @@
 
 
 <script>
-function toggleDark() {
+function playMusic() {
+    var music = document.getElementById("bgm");
+    music.play();
+}
+    function toggleDark() {
     document.body.classList.toggle("dark");
 
     if (document.body.classList.contains("dark")) {
@@ -291,3 +304,5 @@ window.onload = function () {
 
 </body>
 </html>
+
+
