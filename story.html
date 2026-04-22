@@ -20,20 +20,25 @@ body {
 
 <body>
 
-<!-- 🎵 音乐 -->
-<audio id="bgm" loop>
-<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-</audio>
-
 <div class="container">
 
 <h1>故事 · 开端 ❄️💧</h1>
 
 <button onclick="toggleDark()">🌙 夜间模式</button>
 <button onclick="playMusic()">🎵 播放音乐</button>
-<p>消毒水的气味很淡，却挥之不去。</p>
+<!-- 🎵 YouTube 背景音乐 -->
+<div id="musicBox" style="display:none; text-align:center; margin-top:10px;">
+    <iframe width="0" height="0"
+    src="https://www.youtube.com/embed/RHBEtw5_BZc?autoplay=1&loop=1&playlist=RHBEtw5_BZc"
+    frameborder="0"
+    allow="autoplay">
+    </iframe>
+</div>
 
+<p>消毒水的气味很淡，却挥之不去。</p>
+    
 <p>凉蝶坐在病床边，手腕缠着简单的绷带。<br>
+    
 白色的布料干净得过分，几乎没有血迹。</p>
 
 <p>她低着头，指尖轻轻按着纱布边缘，像是在确认什么。</p>
@@ -220,10 +225,8 @@ body {
 </div>
 
 
-<script>
 function playMusic() {
-    var music = document.getElementById("bgm");
-    music.play();
+    document.getElementById("musicBox").style.display = "block";
 }
 
 function showNext() {
