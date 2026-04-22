@@ -26,6 +26,23 @@ body {
 
 <button onclick="toggleDark()">🌙 夜间模式</button>
 <button onclick="playMusic()">🎵 播放音乐</button>
+<!-- 🎵 歌单 -->
+<div id="musicBox" style="display:none; text-align:center; margin-top:10px;">
+
+    <!-- 隐藏播放器 -->
+    <iframe id="player" width="0" height="0"
+    src=""
+    frameborder="0"
+    allow="autoplay">
+    </iframe>
+
+    <!-- 歌单按钮 -->
+    <p>
+        <button onclick="playSong('RHBEtw5_BZc')">🎧 歌1</button>
+        <button onclick="playSong('65pJPhP1wzw')">🌸 ハイドレンジア</button>
+    </p>
+
+</div>    
 <!-- 🎵 YouTube 背景音乐 -->
 <div id="musicBox" style="display:none; text-align:center; margin-top:10px;">
     <iframe width="0" height="0"
@@ -224,10 +241,19 @@ body {
 
 </div>
 
-
 function playMusic() {
     document.getElementById("musicBox").style.display = "block";
 }
+
+function playSong(videoId) {
+    var player = document.getElementById("player");
+
+    player.src = "https://www.youtube.com/embed/" 
+    + videoId + "?autoplay=1&loop=1&playlist=" + videoId;
+}
+<button onclick="playSong('视频ID')">歌名</button>    
+</div>
+    
 
 function showNext() {
     document.getElementById("chapter2").style.display = "block";
