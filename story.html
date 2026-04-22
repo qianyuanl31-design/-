@@ -15,13 +15,6 @@ body {
     text-align: center;
     color: gray;
 }
-function toggleDark() {
-    document.body.classList.toggle("dark");
-}
- .dark {
-    background: #1a1a1a;
-    color: #eee;
-}   
 </style>
 </head>
 
@@ -33,22 +26,16 @@ function toggleDark() {
 
 <button onclick="toggleDark()">🌙 夜间模式</button>
 <button onclick="playMusic()">🎵 播放音乐</button>
+
 <!-- 🎵 歌单 -->
 <div id="musicBox" style="display:none; text-align:center; margin-top:10px;">
+    <iframe id="player" width="0" height="0"></iframe>
 
-    <!-- 隐藏播放器 -->
-    <iframe id="player" width="0" height="0"
-    src=""
-    frameborder="0"
-    allow="autoplay">
-    </iframe>
-
-    <!-- 歌单按钮 -->
     <p>
         <button onclick="playSong('RHBEtw5_BZc')">🎧 ×0.lnp</button>
         <button onclick="playSong('65pJPhP1wzw')">🌸 ハイドレンジア</button>
     </p>
-
+</div>
 
 
 <p>消毒水的气味很淡，却挥之不去。</p>
@@ -241,6 +228,13 @@ function toggleDark() {
 </div>
 
 <script>
+ function toggleDark() {
+    document.body.classList.toggle("dark");
+}
+ .dark {
+    background: #1a1a1a;
+    color: #eee;
+}   
 function playMusic() {
     document.getElementById("musicBox").style.display = "block";
 }
