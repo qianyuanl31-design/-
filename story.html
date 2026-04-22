@@ -279,7 +279,7 @@ button:hover {
     <a href="javascript:void(0)" onclick="showNext()">下一章 →</a>
 </div>
 <a href="index.html">← 返回首页</a>
-</div>
+
 </div>
 
 <script>
@@ -297,7 +297,12 @@ function playSong(videoId) {
     + videoId + "?autoplay=1&loop=1&playlist=" + videoId;
 }
 function showNext() {
-    alert("chapter2");
+    document.getElementById("chapter2").style.display = "block";
+    
+    window.scrollTo({
+        top: document.getElementById("chapter2").offsetTop,
+        behavior: "smooth"
+    });
 }
 </script>
 
