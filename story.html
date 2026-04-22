@@ -3,23 +3,70 @@
 <head>
 <meta charset="utf-8">
 <title>故事 · 开端</title>
-    
+
 <style>
 body {
-    background-color: #ffffff;
-    color: #000000;
-    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #eef6ff, #ffffff);
+    color: #2c3e50;
+    font-family: "Segoe UI", serif;
+    line-height: 1.8;
+    transition: 0.3s;
 }
 
+/* 容器 */
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    background: rgba(255,255,255,0.7);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* 标题 */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* 分隔线 */
 .line {
     text-align: center;
-    color: gray;
+    opacity: 0.5;
+    margin: 25px 0;
+}
+
+/* 按钮 */
+button {
+    margin: 5px;
+    padding: 8px 16px;
+    border-radius: 12px;
+    border: none;
+    background: #dfefff;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #cde4ff;
 }
 
 /* 🌙 夜间模式 */
 .dark {
     background: #1a1a1a;
     color: #eee;
+}
+
+.dark .container {
+    background: rgba(40,40,40,0.8);
+}
+
+/* 居中按钮区 */
+.center {
+    text-align: center;
+    margin-top: 20px;
 }
 </style>
 </head>
@@ -30,22 +77,19 @@ body {
 
 <h1>故事 · 开端 ❄️💧</h1>
 
-<button onclick="toggleDark()">🌙 夜间模式</button>
-<button onclick="playMusic()">🎵 播放音乐</button>
+<div class="center">
+    <button onclick="toggleDark()">🌙 夜间模式</button>
+    <button onclick="playMusic()">🎵 播放音乐</button>
+</div>
 
 <!-- 🎵 歌单 -->
-<div id="musicBox" style="display:none; text-align:center; margin-top:10px;">
-
-    <iframe id="player" width="0" height="0"
-    frameborder="0"
-    allow="autoplay">
-    </iframe>
+<div id="musicBox" class="center" style="display:none;">
+    <iframe id="player" width="0" height="0" frameborder="0" allow="autoplay"></iframe>
 
     <p>
         <button onclick="playSong('RHBEtw5_BZc')">🎧 ×0.lnp</button>
         <button onclick="playSong('65pJPhP1wzw')">🌸 ハイドレンジア</button>
     </p>
-
 </div>
 
 
@@ -228,14 +272,14 @@ body {
 </div>
 
 
-<div style="text-align:center; margin-top:30px;">
-<a href="#" onclick="location.reload()">← 上一章</a>
-    |
-<a href="javascript:void(0)" onclick="showNext()">下一章 →</a>
+<p class="line">……</p>
+
+<div class="center">
+    <a href="#" onclick="location.reload()">← 上一章</a> |
+    <a href="javascript:void(0)" onclick="showNext()">下一章 →</a>
 </div>
-
 <a href="index.html">← 返回首页</a>
-
+</div>
 </div>
 
 <script>
@@ -249,18 +293,16 @@ function playMusic() {
 
 function playSong(videoId) {
     var player = document.getElementById("player");
-
     player.src = "https://www.youtube.com/embed/" 
     + videoId + "?autoplay=1&loop=1&playlist=" + videoId;
 }
-
 function showNext() {
-    var c2 = document.getElementById("chapter2");
-    if (c2) c2.style.display = "block";
+    alert("chapter2");
 }
 </script>
 
 </body>
 </html>
+
 
 
