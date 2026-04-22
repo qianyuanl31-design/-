@@ -15,6 +15,12 @@ body {
     text-align: center;
     color: gray;
 }
+
+/* 🌙 夜间模式 */
+ .dark {
+    background: #1a1a1a;
+    color: #eee;
+}   
 </style>
 </head>
 
@@ -29,8 +35,12 @@ body {
 
 <!-- 🎵 歌单 -->
 <div id="musicBox" style="display:none; text-align:center; margin-top:10px;">
-    <iframe id="player" width="0" height="0"></iframe>
 
+        <!-- 播放器（隐藏） -->
+    <iframe id="player" width="0" height="0"
+    frameborder="0"
+    allow="autoplay">
+    </iframe>
     <p>
         <button onclick="playSong('RHBEtw5_BZc')">🎧 ×0.lnp</button>
         <button onclick="playSong('65pJPhP1wzw')">🌸 ハイドレンジア</button>
@@ -228,13 +238,10 @@ body {
 </div>
 
 <script>
- function toggleDark() {
+function toggleDark() {
     document.body.classList.toggle("dark");
 }
- .dark {
-    background: #1a1a1a;
-    color: #eee;
-}   
+
 function playMusic() {
     document.getElementById("musicBox").style.display = "block";
 }
@@ -247,7 +254,8 @@ function playSong(videoId) {
 }
 
 function showNext() {
-    document.getElementById("chapter2").style.display = "block";
+    var c2 = document.getElementById("chapter2");
+    if (c2) c2.style.display = "block";
 }
 </script>
 
