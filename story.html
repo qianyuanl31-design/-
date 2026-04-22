@@ -42,15 +42,7 @@ body {
         <button onclick="playSong('65pJPhP1wzw')">🌸 ハイドレンジア</button>
     </p>
 
-</div>    
-<!-- 🎵 YouTube 背景音乐 -->
-<div id="musicBox" style="display:none; text-align:center; margin-top:10px;">
-    <iframe width="0" height="0"
-    src="https://www.youtube.com/embed/RHBEtw5_BZc?autoplay=1&loop=1&playlist=RHBEtw5_BZc"
-    frameborder="0"
-    allow="autoplay">
-    </iframe>
-</div>
+
 
 <p>消毒水的气味很淡，却挥之不去。</p>
     
@@ -241,6 +233,7 @@ body {
 
 </div>
 
+<script>
 function playMusic() {
     document.getElementById("musicBox").style.display = "block";
 }
@@ -250,9 +243,7 @@ function playSong(videoId) {
 
     player.src = "https://www.youtube.com/embed/" 
     + videoId + "?autoplay=1&loop=1&playlist=" + videoId;
-}    
-</div>
-    
+}
 
 function showNext() {
     document.getElementById("chapter2").style.display = "block";
