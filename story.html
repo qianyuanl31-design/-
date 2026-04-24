@@ -249,7 +249,7 @@ function typeWriter() {
     if (i < content.length) {
         document.getElementById("text").innerHTML += content[i];
         i++;
-        setTimeout(typeWriter, 50);
+        setTimeout(typeWriter, 20);
     }
 }
      typeWriter();
@@ -265,9 +265,8 @@ function playSong(videoId) {
 }
 function showNext() {
     document.getElementById("chapter2").style.display = "block";
-    
-    window.scrollTo({
-        top: document.getElementById("chapter2").offsetTop,
+
+    document.getElementById("chapter2").scrollIntoView({
         behavior: "smooth"
     });
 }
