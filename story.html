@@ -80,6 +80,7 @@ button:hover {
 <div class="center">
     <button onclick="toggleDark()">🌙 夜间模式</button>
     <button onclick="playMusic()">🎵 播放音乐</button>
+    <button onclick="skipTyping()">⚡ 跳过动画</button>
 </div>
 
 <!-- 🎵 歌单 -->
@@ -252,7 +253,11 @@ function typeWriter() {
         setTimeout(typeWriter, 20);
     }
 }
-     typeWriter();
+    function skipTyping() {
+    document.getElementById("text").innerHTML = content;
+    i = content.length;
+}
+    typeWriter();
 
 function playMusic() {
     document.getElementById("musicBox").style.display = "block";
