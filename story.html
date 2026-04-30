@@ -106,6 +106,8 @@ button:hover {
     <button onclick="playSong('IDO4nGwi7Cw')">✨ ガラクタマインド</button>
 
 </p>
+
+ <p>   
     <button onclick="playSong('JV--KBO5bgM')">🌊 水死体は恋したい</button>
  </p>
 
@@ -117,6 +119,10 @@ button:hover {
 <div id="chapter2" style="display:none;">
     <h2 style="text-align:center;">第二段 · 偏差</h2>
     <div id="chapter2Text" style="white-space: pre-wrap;"></div>
+</div> 
+    <div id="chapter3" style="display:none;">
+    <h2 style="text-align:center;">第三段 · 不在计划内</h2>
+    <div id="chapter3Text" style="white-space: pre-wrap;"></div>
 </div>
 
     
@@ -358,12 +364,14 @@ function typeWriter() {
         setTimeout(typeWriter, 20);
     }
 }
- function skipTyping() {
+function skipTyping() {
+    // 第一段
     if (i < content.length) {
         document.getElementById("text").textContent = content;
         i = content.length;
     }
 
+    // 第二段
     if (
         document.getElementById("chapter2").style.display === "block" &&
         j < content2.length
@@ -371,10 +379,20 @@ function typeWriter() {
         document.getElementById("chapter2Text").textContent = content2;
         j = content2.length;
     }
+
+    // 第三段（新增✨）
+    if (
+        document.getElementById("chapter3").style.display === "block" &&
+        k < content3.length
+    ) {
+        document.getElementById("chapter3Text").textContent = content3;
+        k = content3.length;
+    }
 }
     typeWriter();
     
     var j = 0;
+    var k = 0;
 
 function typeWriter2() {
     if (j < content2.length) {
@@ -394,15 +412,24 @@ function playSong(videoId) {
     + videoId + "?autoplay=1&loop=1&playlist=" + videoId;
 }
 function showNext() {
-    document.getElementById("chapter2").style.display = "block";
-
     if (j === 0) {
+        document.getElementById("chapter2").style.display = "block";
         typeWriter2();
+
+        document.getElementById("chapter2").scrollIntoView({
+            behavior: "smooth"
+        });
+        return;
     }
 
-    document.getElementById("chapter2").scrollIntoView({
-        behavior: "smooth"
-    });
+    if (k === 0) {
+        document.getElementById("chapter3").style.display = "block";
+        typeWriter3();
+
+        document.getElementById("chapter3").scrollIntoView({
+            behavior: "smooth"
+        });
+    }
 }
 </script>
 
