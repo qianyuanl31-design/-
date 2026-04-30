@@ -352,9 +352,13 @@ var content3 = `
 “尤其是刚拔完针的病人。”
 `;
 
+<script>
+// 🌙 夜间模式
 function toggleDark() {
     document.body.classList.toggle("dark");
 }
+
+// ===== 第一章 =====
 var i = 0;
 
 function typeWriter() {
@@ -364,35 +368,9 @@ function typeWriter() {
         setTimeout(typeWriter, 20);
     }
 }
-function skipTyping() {
-    // 第一段
-    if (i < content.length) {
-        document.getElementById("text").textContent = content;
-        i = content.length;
-    }
 
-    // 第二段
-    if (
-        document.getElementById("chapter2").style.display === "block" &&
-        j < content2.length
-    ) {
-        document.getElementById("chapter2Text").textContent = content2;
-        j = content2.length;
-    }
-
-    // 第三段（新增✨）
-    if (
-        document.getElementById("chapter3").style.display === "block" &&
-        k < content3.length
-    ) {
-        document.getElementById("chapter3Text").textContent = content3;
-        k = content3.length;
-    }
-}
-    typeWriter();
-    
-    var j = 0;
-    var k = 0;
+// ===== 第二章 =====
+var j = 0;
 
 function typeWriter2() {
     if (j < content2.length) {
@@ -401,7 +379,47 @@ function typeWriter2() {
         setTimeout(typeWriter2, 20);
     }
 }
-    
+
+// ===== 第三章 =====
+var k = 0;
+
+function typeWriter3() {
+    if (k < content3.length) {
+        document.getElementById("chapter3Text").textContent += content3[k];
+        k++;
+        setTimeout(typeWriter3, 20);
+    }
+}
+
+// ===== 跳过动画 =====
+function skipTyping() {
+
+    // 第一章
+    if (i < content.length) {
+        document.getElementById("text").textContent = content;
+        i = content.length;
+    }
+
+    // 第二章
+    if (
+        document.getElementById("chapter2").style.display === "block" &&
+        j < content2.length
+    ) {
+        document.getElementById("chapter2Text").textContent = content2;
+        j = content2.length;
+    }
+
+    // 第三章
+    if (
+        document.getElementById("chapter3").style.display === "block" &&
+        k < content3.length
+    ) {
+        document.getElementById("chapter3Text").textContent = content3;
+        k = content3.length;
+    }
+}
+
+// ===== 音乐 =====
 function playMusic() {
     document.getElementById("musicBox").style.display = "block";
 }
@@ -409,9 +427,13 @@ function playMusic() {
 function playSong(videoId) {
     var player = document.getElementById("player");
     player.src = "https://www.youtube.com/embed/" 
-    + videoId + "?autoplay=1&loop=1&playlist=" + videoId;
+        + videoId + "?autoplay=1&loop=1&playlist=" + videoId;
 }
+
+// ===== 下一章逻辑（重点✨）=====
 function showNext() {
+
+    // 👉 先显示第二章
     if (j === 0) {
         document.getElementById("chapter2").style.display = "block";
         typeWriter2();
@@ -422,6 +444,7 @@ function showNext() {
         return;
     }
 
+    // 👉 再显示第三章
     if (k === 0) {
         document.getElementById("chapter3").style.display = "block";
         typeWriter3();
@@ -429,8 +452,15 @@ function showNext() {
         document.getElementById("chapter3").scrollIntoView({
             behavior: "smooth"
         });
+        return;
     }
 }
+
+// 页面加载自动开始第一章
+window.onload = function() {
+    typeWriter();
+};
+</script>
 </script>
 
 </body>
