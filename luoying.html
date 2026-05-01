@@ -106,31 +106,31 @@
         <p>更多精彩内容正在制作中……</p>
     </div>
 
-    <script>
-        function playMusic() {
-            const player = document.getElementById("player");
-            player.src = "https://www.youtube.com/embed/ZvYWvo_Wgzs?autoplay=1&loop=1&playlist=ZvYWvo_Wgzs";
-        }
+   <script>
+function playMusic() {
+    var player = document.getElementById("player");
+    player.src = "https://www.youtube.com/embed/ZvYWvo_Wgzs?autoplay=1&loop=1&playlist=ZvYWvo_Wgzs";
+}
 
-        function createPetal() {
-            const petal = document.createElement("div");
-            petal.className = "petal";
+function createPetal() {
+    var petal = document.createElement("div");
+    petal.className = "petal";
 
-            const petals = ["🌸", "🌺", "💮"];
-            petal.innerText = petals[Math.floor(Math.random() * petals.length)];
+    var petals = ["🌸", "🌺", "💮"];
+    petal.innerText = petals[Math.floor(Math.random() * petals.length)];
 
-            petal.style.left = Math.random() * window.innerWidth + "px";
-            petal.style.animationDuration = (4 + Math.random() * 5) + "s";
+    petal.style.left = Math.random() * window.innerWidth + "px";
+    petal.style.animationDuration = (4 + Math.random() * 5) + "s";
 
-            document.body.appendChild(petal);
+    document.body.appendChild(petal);
 
-            setTimeout(() => {
-                petal.remove();
-            }, 9000);
-        }
+    setTimeout(function() {
+        petal.remove();
+    }, 9000);
+}
 
-        setInterval(createPetal, 350);
-    </script>
+setInterval(createPetal, 350);
+</script>
 
 </body>
 </html>
