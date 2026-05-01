@@ -45,9 +45,7 @@
             margin-top: 20px;
         }
 
-        .menu { <button onclick="playMusic()" class="btn">🎵 播放BGM</button>
-
-<iframe id="player" width="0" height="0" frameborder="0" allow="autoplay"></iframe>
+        .menu {
             margin-top: 40px;
         }
 
@@ -60,6 +58,8 @@
             color: #8b3d66;
             text-decoration: none;
             font-size: 18px;
+            border: none;
+            cursor: pointer;
             transition: 0.3s;
             box-shadow: 0 5px 15px rgba(216,111,163,0.3);
         }
@@ -92,20 +92,26 @@
         <h1>🌸 欢迎来到落樱的OC世界 🌸</h1>
         <p>这里是属于角色与故事的梦幻世界</p>
 
+        <!-- 音乐按钮 -->
+        <div class="menu">
+            <button onclick="playMusic()" class="btn">🎵 播放BGM</button>
+            <iframe id="player" width="0" height="0" frameborder="0" allow="autoplay"></iframe>
+        </div>
+
         <h2>🗺️ 世界地图</h2>
         <img src="map.jpg" alt="世界地图">
-     
+
         <h2>✨ 欢迎来到落樱的世界 ✨</h2>
-         <p>更多精彩内容正在制作中……</p>
-   
-       
-        <script>
-       function playMusic() {
-    var player = document.getElementById("player");
-    player.src = "https://www.youtube.com/embed/ZvYWvo_Wgzs?autoplay=1&loop=1&playlist=ZvYWvo_Wgzs";
-} 
-            
-            function createPetal() {
+        <p>更多精彩内容正在制作中……</p>
+    </div>
+
+    <script>
+        function playMusic() {
+            const player = document.getElementById("player");
+            player.src = "https://www.youtube.com/embed/ZvYWvo_Wgzs?autoplay=1&loop=1&playlist=ZvYWvo_Wgzs";
+        }
+
+        function createPetal() {
             const petal = document.createElement("div");
             petal.className = "petal";
 
