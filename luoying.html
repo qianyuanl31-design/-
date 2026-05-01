@@ -45,7 +45,9 @@
             margin-top: 20px;
         }
 
-        .menu {
+        .menu { <button onclick="playMusic()" class="btn">🎵 播放BGM</button>
+
+<iframe id="player" width="0" height="0" frameborder="0" allow="autoplay"></iframe>
             margin-top: 40px;
         }
 
@@ -98,7 +100,12 @@
    
        
         <script>
-        function createPetal() {
+       function playMusic() {
+    var player = document.getElementById("player");
+    player.src = "https://www.youtube.com/embed/ZvYWvo_Wgzs?autoplay=1&loop=1&playlist=ZvYWvo_Wgzs";
+} 
+            
+            function createPetal() {
             const petal = document.createElement("div");
             petal.className = "petal";
 
