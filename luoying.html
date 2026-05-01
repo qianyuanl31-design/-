@@ -93,10 +93,10 @@
         <p>这里是属于角色与故事的梦幻世界</p>
 
         <!-- 音乐按钮 -->
-        <div class="menu">
-            <button onclick="playMusic()" class="btn">💝 落樱的邪恶BGM</button>
-            <iframe id="player" width="0" height="0" frameborder="0" allow="autoplay"></iframe>
-        </div>
+       <div class="menu">
+    <button onclick="playRandomMusic()" class="btn">💝 落樱的邪恶BGM</button>
+    <iframe id="player" width="0" height="0" frameborder="0" allow="autoplay"></iframe>
+</div>
 
         <h2>🗺️ 世界地图</h2>
         <img src="map.jpg" alt="世界地图">
@@ -106,11 +106,23 @@
     </div>
 
     <script>
-        function playMusic() {
-            const player = document.getElementById("player");
-            player.src = "https://www.youtube.com/embed/ZvYWvo_Wgzs?autoplay=1&loop=1&playlist=ZvYWvo_Wgzs";
-        }
+       // 🎵 随机歌单
+function playRandomMusic() {
 
+    var songs = [
+        "ZvYWvo_Wgzs", // 你之前那首
+        "l_QIvntYRCI"  // 新加这首
+    ];
+
+    // 随机选一首
+    var randomIndex = Math.floor(Math.random() * songs.length);
+    var videoId = songs[randomIndex];
+
+    var player = document.getElementById("player");
+
+    player.src = "https://www.youtube.com/embed/" 
+        + videoId + "?autoplay=1&loop=1&playlist=" + videoId;
+}
         function createPetal() {
             const petal = document.createElement("div");
             petal.className = "petal";
