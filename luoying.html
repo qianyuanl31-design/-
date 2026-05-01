@@ -107,27 +107,31 @@
 
     <script>
        // 🎵 随机歌单
+let lastSong = -1;
+
 function playRandomMusic() {
     const songs = [
         "ZvYWvo_Wgzs",
         "l_QIvntYRCI"
     ];
 
-    const randomIndex = Math.floor(Math.random() * songs.length);
-    const videoId = songs[randomIndex];
+    let randomIndex;
 
+    // 保证不会连续播放同一首
+    do {
+        randomIndex = Math.floor(Math.random() * songs.length);
+    } while (randomIndex === lastSong);
+
+    lastSong = randomIndex;
+
+    const videoId = songs[randomIndex];
     const player = document.getElementById("player");
 
-    // 清空旧链接，确保重新加载
-    player.src = "";
-
-    setTimeout(() => {
-        player.src =
-            "https://www.youtube.com/embed/" +
-            videoId +
-            "?autoplay=1&loop=1&playlist=" +
-            videoId;
-    }, 100);
+    player.src =
+        "https://www.youtube.com/embed/" +
+        videoId +
+        "?autoplay=1&loop=1&playlist=" +
+        videoId;
 }
         function createPetal() {
             const petal = document.createElement("div");
