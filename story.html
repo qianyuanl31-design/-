@@ -124,6 +124,10 @@ button:hover {
     <h2 style="text-align:center;">第三段 · 不在计划内</h2>
     <div id="chapter3Text" style="white-space: pre-wrap;"></div>
 </div>
+    <div id="chapter4" style="display:none;">
+    <h2 style="text-align:center;">第四段 · 风的藏身处</h2>
+    <div id="chapter4Text" style="white-space: pre-wrap;"></div>
+</div>
 
     
    
@@ -351,6 +355,204 @@ var content3 = `
 
 “尤其是刚拔完针的病人。”
 `;
+var content4 = `
+夜色渐深。
+
+凉蝶站在医院外一处偏僻的旧屋檐下。
+
+这里很安静。
+
+远离主楼，远离护士站，也没有多少人会经过。
+
+她靠着墙，抬头看了一眼漆黑的天空。
+
+很好。
+
+没有人跟来。
+
+至少——她没有发现。
+
+……
+
+从离开医院开始，她已经换过三次路线。
+
+避开监控。
+
+避开人群。
+
+甚至故意在两个路口留下了错误的方向。
+
+如果清念洋真的跟上来了，那么现在应该也已经被她甩掉。
+
+凉蝶睁开眼。
+
+“……应该没问题了。”
+
+她低声说。
+
+……
+
+她就在这里待了一夜。
+
+没有人来。
+
+没有声音。
+
+没有脚步。
+
+一切都安静得像她预想的一样。
+
+……
+
+第二天清晨。
+
+天刚蒙蒙亮。
+
+凉蝶站起身，整理了一下衣服。
+
+该走了。
+
+她最后看了一眼身后的旧屋檐，确认没有留下任何痕迹。
+
+很好。
+
+没有人知道她在这里。
+
+她转过身。
+
+“小姐。”
+
+一道温和的声音从身后传来。
+
+凉蝶的脚步停住。
+
+……
+
+她没有立刻回头。
+
+那声音太熟悉了。
+
+熟悉到她甚至不需要确认。
+
+“您现在还是病人哦。”
+
+清念洋站在那里。
+
+白大褂整整齐齐，神情平静。
+
+就像只是偶然经过这里。
+
+凉蝶沉默了几秒。
+
+“……”
+
+清念洋看着她。
+
+“医院规定，不允许病人出逃哦。”
+
+……
+
+凉蝶缓缓转过身。
+
+那双白色的眼睛看着他。
+
+第一次。
+
+她的眼神里出现了一瞬间几乎无法察觉的困惑。
+
+“你怎么知道我在这里？”
+
+清念洋没有立刻回答。
+
+只是看着她。
+
+“您昨晚睡得好吗？”
+
+凉蝶：“……”
+
+空气安静了几秒。
+
+她忽然明白了。
+
+他不是刚刚才找到她。
+
+他早就知道。
+
+只是一直没有出现。
+
+直到她准备离开的时候，才站到她面前。
+
+……
+
+“你一直知道。”
+
+不是疑问。
+
+清念洋轻轻笑了一下。
+
+“嗯。”
+
+凉蝶看着他。
+
+“为什么不抓我？”
+
+“因为您又没有跑出医院太远。”
+
+“……”
+
+“而且，”他顿了一下，“我想看看您准备什么时候自己回来。”
+
+凉蝶的眉梢轻轻动了一下。
+
+“如果我不回来呢？”
+
+清念洋抬起眼。
+
+那双黄橙色的眼睛依旧温和。
+
+“那我就只好来找您了。”
+
+风从两人之间吹过去。
+
+凉蝶忽然没有说话。
+
+她第一次意识到——
+
+自己好像真的没有躲过这个人。
+
+……
+
+“回去吧。”
+
+清念洋转过身。
+
+“小姐。”
+
+凉蝶没有动。
+
+“我不是你想的那么简单。”
+
+她低声说道。
+
+清念洋停了一下。
+
+却没有回头。
+
+“我知道。”
+
+……
+
+然后，他继续向前走。
+
+凉蝶站在原地。
+
+风吹过她淡蓝色的发梢。
+
+她看着那个逐渐远去的背影。
+
+很久没有说话。
+
+`;
 
 
 // 🌙 夜间模式
@@ -390,6 +592,16 @@ function typeWriter3() {
         setTimeout(typeWriter3, 20);
     }
 }
+    // ===== 第四章 =====
+var l = 0;
+
+function typeWriter4() {
+    if (l < content4.length) {
+        document.getElementById("chapter4Text").textContent += content4[l];
+        l++;
+        setTimeout(typeWriter4, 20);
+    }
+}
 
 // ===== 跳过动画 =====
 function skipTyping() {
@@ -418,6 +630,14 @@ function skipTyping() {
         k = content3.length;
     }
 }
+     // 第四章
+    if (
+        document.getElementById("chapter4").style.display === "block" &&
+        l < content4.length
+    ) {
+        document.getElementById("chapter4Text").textContent = content4;
+        l = content4.length;
+    }
 
 // ===== 音乐 =====
 function playMusic() {
@@ -433,7 +653,7 @@ function playSong(videoId) {
 // ===== 下一章逻辑（重点✨）=====
 function showNext() {
 
-    // 👉 先显示第二章
+    // 👉 第二章
     if (j === 0) {
         document.getElementById("chapter2").style.display = "block";
         typeWriter2();
@@ -444,12 +664,23 @@ function showNext() {
         return;
     }
 
-    // 👉 再显示第三章
+    // 👉 第三章
     if (k === 0) {
         document.getElementById("chapter3").style.display = "block";
         typeWriter3();
 
         document.getElementById("chapter3").scrollIntoView({
+            behavior: "smooth"
+        });
+        return;
+    }
+
+    // 👉 第四章
+    if (l === 0) {
+        document.getElementById("chapter4").style.display = "block";
+        typeWriter4();
+
+        document.getElementById("chapter4").scrollIntoView({
             behavior: "smooth"
         });
         return;
