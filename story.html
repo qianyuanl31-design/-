@@ -913,8 +913,6 @@ function typeWriter5() {
         setTimeout(typeWriter5, 20);
     }
 } 
-
-// ===== 跳过动画 =====
 // ===== 跳过动画 =====
 function skipTyping() {
 
@@ -950,17 +948,18 @@ function skipTyping() {
         document.getElementById("chapter4Text").textContent = content4;
         l = content4.length;
     }
-}
+
     // 第五章
-if (
-    document.getElementById("chapter5").style.display === "block" &&
-    m < content5.length
-) {
-    document.getElementById("chapter5Text").textContent = content5;
-    m = content5.length;
+    if (
+        document.getElementById("chapter5").style.display === "block" &&
+        m < content5.length
+    ) {
+        document.getElementById("chapter5Text").textContent = content5;
+        m = content5.length;
+    }
 }
 
-// ===== 音乐 =====
+    // ===== 音乐 =====
 function playMusic() {
     document.getElementById("musicBox").style.display = "block";
 }
@@ -970,7 +969,6 @@ function playSong(videoId) {
     player.src = "https://www.youtube.com/embed/" 
         + videoId + "?autoplay=1&loop=1&playlist=" + videoId;
 }
-
 // ===== 下一章逻辑（重点✨）=====
 function showNext() {
 
@@ -1006,16 +1004,17 @@ function showNext() {
         });
         return;
     }
-}
-    // 👉 第五章
-if (m === 0) {
-    document.getElementById("chapter5").style.display = "block";
-    typeWriter5();
 
-    document.getElementById("chapter5").scrollIntoView({
-        behavior: "smooth"
-    });
-    return;
+    // 👉 第五章
+    if (m === 0) {
+        document.getElementById("chapter5").style.display = "block";
+        typeWriter5();
+
+        document.getElementById("chapter5").scrollIntoView({
+            behavior: "smooth"
+        });
+        return;
+    }
 }
 
 // 页面加载自动开始第一章
