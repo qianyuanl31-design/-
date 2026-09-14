@@ -128,6 +128,10 @@ button:hover {
     <h2 style="text-align:center;">第四段 · 风的藏身处</h2>
     <div id="chapter4Text" style="white-space: pre-wrap;"></div>
 </div>
+    <div id="chapter5" style="display:none;">
+    <h2 style="text-align:center;">第五段 · 异常</h2>
+    <div id="chapter5Text" style="white-space: pre-wrap;"></div>
+</div>
 
     
    
@@ -711,7 +715,146 @@ var content4 = `
 看来以后……
 
 还是不要被她盯太久比较好。
-`;
+`; 
+var content5 = `凉蝶站在原地，看着清念洋离开的背影。
+
+直到他的身影彻底消失在医院的门口。
+
+她才缓缓收回视线。
+
+一个月。
+
+这是她给自己定下的时间。
+
+一个月后，她会杀掉他。
+
+这是任务。
+
+没有理由。
+
+也不需要犹豫。
+
+可这一次，她却第一次没有立刻执行。
+
+凉蝶垂下眼。
+
+那个男人很奇怪。
+
+他知道自己在说谎。
+
+知道自己逃出了医院。
+
+甚至知道自己藏在哪里。
+
+可是，他没有追问。
+
+没有调查。
+
+也没有试图拆穿她。
+
+只是站在那里，像是什么都知道，又像是什么都不在乎。
+
+“……”
+
+凉蝶沉默了一会儿。
+
+她不喜欢这种感觉。
+
+不是害怕。
+
+而是不安。
+
+因为这是她第一次遇到一个让自己无法迅速判断的目标。
+
+她应该杀掉他。
+
+可她现在……
+
+并不想这么快杀掉他。
+
+凉蝶轻轻闭上眼。
+
+“再观察一段时间。”
+
+一个月。
+
+在这一个月里，她会弄清楚清念洋到底是什么人。
+
+如果到最后，她依旧无法改变判断——
+
+那就按照原计划。
+
+她转身离开。
+
+与此同时。
+
+医院里。
+
+清念洋重新回到了办公室。
+
+他刚坐下，同事便将一份资料放到了他的桌上。
+
+“清医生，这个病人的资料需要你确认一下。”
+
+“嗯。”
+
+清念洋接过资料。
+
+翻开第一页。
+
+他的动作忽然停了一下。
+
+病人的姓名。
+
+凉蝶。
+
+他继续往下看。
+
+年龄、身份、入院时间……
+
+很正常。
+
+可是看着看着，他的眉头慢慢皱了起来。
+
+有几处资料，对不上。
+
+伤口的位置。
+
+入院时的状态。
+
+还有她自己所说的一些事情。
+
+都存在很细微的偏差。
+
+如果不是他刚好记得她当时的样子，几乎不会发现。
+
+清念洋拿起笔。
+
+在那几处地方轻轻做了标记。
+
+同事看了一眼。
+
+“有问题？”
+
+“……还不确定。”
+
+清念洋合上资料。
+
+他沉默了一会儿。
+
+然后低声说道：
+
+“不过，她应该不是普通病人。”
+
+窗外的风吹过。
+
+病历纸轻轻翻动了一页。
+
+而此时的凉蝶并不知道——
+
+在她决定观察清念洋的时候。
+
+清念洋也已经开始观察她了。`;
 
 
 // 🌙 夜间模式
@@ -761,6 +904,15 @@ function typeWriter4() {
         setTimeout(typeWriter4, 20);
     }
 }
+    var m = 0;
+
+function typeWriter5() {
+    if (m < content5.length) {
+        document.getElementById("chapter5Text").textContent += content5[m];
+        m++;
+        setTimeout(typeWriter5, 20);
+    }
+} 
 
 // ===== 跳过动画 =====
 // ===== 跳过动画 =====
@@ -798,6 +950,14 @@ function skipTyping() {
         document.getElementById("chapter4Text").textContent = content4;
         l = content4.length;
     }
+}
+    // 第五章
+if (
+    document.getElementById("chapter5").style.display === "block" &&
+    m < content5.length
+) {
+    document.getElementById("chapter5Text").textContent = content5;
+    m = content5.length;
 }
 
 // ===== 音乐 =====
@@ -846,6 +1006,16 @@ function showNext() {
         });
         return;
     }
+}
+    // 👉 第五章
+if (m === 0) {
+    document.getElementById("chapter5").style.display = "block";
+    typeWriter5();
+
+    document.getElementById("chapter5").scrollIntoView({
+        behavior: "smooth"
+    });
+    return;
 }
 
 // 页面加载自动开始第一章
