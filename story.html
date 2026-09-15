@@ -112,7 +112,11 @@ button:hover {
 </div>
 
 <div id="text" style="white-space: pre-wrap;"></div>
-
+<div class="center">
+   <span>← 上一章</span>
+    <a href="#" onclick="showNext(); return false;">下一章 →</a>
+</div>
+    
 <div class="center">
     <button onclick="playMusic()">🎵 音乐</button>
     <button onclick="skipTyping()">⚡ 跳过动画</button>
@@ -126,13 +130,23 @@ button:hover {
     <h2 style="text-align:center;">第二段 · 偏差</h2>
    <div id="chapter2Text" style="white-space: pre-wrap;"></div>
 <div class="center">
+   <a href="#" onclick="goToChapter('text'); return false;">← 上一章</a>
+    <a href="#" onclick="showNext(); return false;">下一章 →</a>
+</div>
+    
+    <div class="center">
     <button onclick="playMusic()">🎵 音乐</button>
     <button onclick="skipTyping()">⚡ 跳过动画</button>
 </div>
     <div id="chapter3" style="display:none;">
     <h2 style="text-align:center;">第三段 · 不在计划内</h2>
     <div id="chapter3Text" style="white-space: pre-wrap;"></div>
+</div> 
+    <div class="center">
+  <a href="#" onclick="goToChapter('chapter2'); return false;">← 上一章</a>
+    <a href="#" onclick="showNext(); return false;">下一章 →</a>
 </div>
+    
     <div class="center">
     <button onclick="playMusic()">🎵 音乐</button>
     <button onclick="skipTyping()">⚡ 跳过动画</button>
@@ -142,25 +156,26 @@ button:hover {
     <div id="chapter4Text" style="white-space: pre-wrap;"></div>
 </div>
     <div class="center">
+<a href="#" onclick="goToChapter('chapter3'); return false;">← 上一章</a>
+    <a href="#" onclick="showNext(); return false;">下一章 →</a>
+</div>
+    <div class="center">
     <button onclick="playMusic()">🎵 音乐</button>
     <button onclick="skipTyping()">⚡ 跳过动画</button>
 </div>
     <div id="chapter5" style="display:none;">
     <h2 style="text-align:center;">第五段 · 异常</h2>
     <div id="chapter5Text" style="white-space: pre-wrap;"></div>
-</div> 
+</div>
+    <div class="center">
+  <a href="#" onclick="goToChapter('chapter4'); return false;">← 上一章</a>
+    <a href="#" onclick="showNext(); return false;">下一章 →</a>
+</div>
     <div class="center">
     <button onclick="playMusic()">🎵 音乐</button>
     <button onclick="skipTyping()">⚡ 跳过动画</button>
 </div>
 
-    <div class="center">
-    <a href="#" onclick="location.reload(); return false;">← 上一章</a> |
-<a href="#" onclick="showNext(); return false;">下一章 →</a>
-</div>
-<a href="index.html">← 返回首页</a>
-
-</div>
 
 <script>
     var content =`
@@ -1039,6 +1054,11 @@ function showNext() {
 window.onload = function() {
     typeWriter();
 };
+function goToChapter(id) {
+    document.getElementById(id).scrollIntoView({
+        behavior: "smooth"
+    });
+}
 </script>
 
 </body>
